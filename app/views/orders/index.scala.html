@@ -1,0 +1,20 @@
+@(or : List[Orders])
+
+@layout("All Orders"){
+    <h1 style="font-size: 200%">All Orders</h1><br>
+
+    @for(order <- or){
+    <ul class="list-group">
+    <a href="@routes.OrderController.show(order.orderId)" class="list-group-item list-group-item-action active">Order Id: @order.orderId </a>
+    <li class="list-group-item">Creation Date: @order.creationDate</li>
+        <li class="list-group-item"><a href="@routes.ItemController.show(order.itemId)">Item Id: @order.itemId</a></li>
+    <li class="list-group-item">Quantity: @order.quantity</li>
+        <li class="list-group-item"><a href="@routes.UserController.show(order.userId)">User Id: @order.userId</a></li>
+    <li class="list-group-item">Completion: @order.fulfilled / @order.quantity</li>
+    </ul>
+    <br>
+    }
+    <a class="btn btn-success" href="@routes.OrderController.create()">
+        Create an Order
+    </a>
+}

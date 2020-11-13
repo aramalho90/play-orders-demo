@@ -1,0 +1,18 @@
+@(users : List[User])
+
+@layout("All Users"){
+    <h1 style="font-size: 200%">All Users</h1><br>
+
+    @for(user <- users){
+    <ul class="list-group">
+        <a href="@routes.UserController.show(user.userId)" class="list-group-item list-group-item-action active">User Id: @user.userId</a>
+        <li class="list-group-item">Name: @user.name</li>
+        <li class="list-group-item">Email: @user.email</li>
+    </ul>
+    <br>
+    }
+
+    <a class="btn btn-success" href="@routes.UserController.create()">
+        Create a User
+    </a>
+}

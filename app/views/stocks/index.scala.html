@@ -1,0 +1,18 @@
+@(stocks : List[Stock])
+
+@layout("All Stocks"){
+    <h1 style="font-size: 200%">All Stocks</h1><br>
+
+    @for(stock <- stocks){
+    <ul class="list-group">
+        <a href="@routes.StockController.show(stock.stockId)" class="list-group-item list-group-item-action active">Stock Id: @stock.stockId</a>
+        <li class="list-group-item">Creation Date: @stock.creationDate</li>
+        <li class="list-group-item"><a href="@routes.ItemController.show(stock.itemId)">Item Id: @stock.itemId</a></li>
+        <li class="list-group-item">Quantity: @stock.quantity</li>
+    </ul>
+    <br>
+    }
+    <a class="btn btn-success" href="@routes.StockController.create()">
+        Create a Stock
+    </a>
+}

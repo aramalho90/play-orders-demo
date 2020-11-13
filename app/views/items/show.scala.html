@@ -1,0 +1,17 @@
+@(item : Item)
+
+@layout("Item no. "+item.itemId){
+
+<ul class="list-group">
+    <li class="list-group-item active">Item no. @item.itemId</li>
+    <li class="list-group-item">Name: @item.name</li>
+</ul>
+<br>
+
+<a class="btn btn-primary" href="@routes.ItemController.edit(item.itemId)">Edit</a>
+
+<button class="btn btn-danger" onclick="sendDeleteRequest(
+'@routes.ItemController.delete(item.itemId)',
+'@routes.ItemController.index()'
+)">Delete</button>
+}

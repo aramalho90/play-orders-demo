@@ -1,0 +1,13 @@
+@(itemForm : Form[Item])(implicit request: Http.Request, messages: play.i18n.Messages)
+@import helper._
+
+@layout("Create Item"){
+    <h1 style="font-size: 200%">Create Item</h1>
+    @helper.form(action = routes.ItemController.save()){
+
+    @helper.inputText(itemForm("itemId"),Symbol("_label") -> "Item Id",Symbol("class") -> "form-control")
+    @helper.inputText(itemForm("name"),Symbol("_label") -> "Name",Symbol("class") -> "form-control")
+
+<button class="btn btn-success" type="submit" >Create Item</button>
+    }
+}

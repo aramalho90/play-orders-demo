@@ -1,0 +1,17 @@
+@(items : List[Item])
+
+@layout("All Items"){
+    <h1 style="font-size: 200%">All Items</h1><br>
+
+@for(item <- items){
+    <ul class="list-group">
+        <a href="@routes.ItemController.show(item.itemId)" class="list-group-item list-group-item-action active">Item Id: @item.itemId</a>
+        <li class="list-group-item">Name: @item.name</li>
+    </ul>
+    <br>
+    }
+
+    <a class="btn btn-success" href="@routes.ItemController.create()">
+        Create an Item
+    </a>
+}

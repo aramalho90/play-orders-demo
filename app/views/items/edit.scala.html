@@ -1,0 +1,14 @@
+@(itemForm : Form[Item])(implicit request: Http.Request, messages: play.i18n.Messages)
+@import helper._
+
+@layout("Edit Item"){
+    <h1>Edit Item</h1>
+    @helper.form(action = routes.ItemController.update(),Symbol("id") -> "itemUpdateForm"){
+
+    @helper.inputText(itemForm("itemId"),Symbol("_label") -> "Item Id",Symbol("readonly") -> "readonly",Symbol("class") -> "form-control")
+    @helper.inputText(itemForm("name"),Symbol("_label") -> "Name",Symbol("class") -> "form-control")
+
+    }
+<button class="btn btn-success" onclick="sendPutRequest('itemUpdateForm','@routes.ItemController.index()')">Edit Order</button>
+
+}

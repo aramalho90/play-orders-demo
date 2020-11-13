@@ -1,0 +1,15 @@
+@(userForm : Form[User])(implicit request: Http.Request, messages: play.i18n.Messages)
+@import helper._
+
+@layout("Edit User"){
+    <h1>Edit User</h1>
+    @helper.form(action = routes.UserController.update(),Symbol("id") -> "userUpdateForm"){
+
+@helper.inputText(userForm("userId"),Symbol("_label") -> "User Id",Symbol("readonly") -> "readonly",Symbol("class") -> "form-control")
+@helper.inputText(userForm("name"),Symbol("_label") -> "Name",Symbol("class") -> "form-control")
+@helper.inputText(userForm("email"),Symbol("_label") -> "Email",Symbol("class") -> "form-control", Symbol("type") -> "email")
+
+    }
+<button class="btn btn-success" onclick="sendPutRequest('userUpdateForm','@routes.UserController.index()')">Edit Order</button>
+
+}

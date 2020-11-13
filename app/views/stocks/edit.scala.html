@@ -1,0 +1,16 @@
+@(stockForm : Form[Stock])(implicit request: Http.Request, messages: play.i18n.Messages)
+@import helper._
+
+@layout("Edit Stock"){
+    <h1>Edit Stock</h1>
+    @helper.form(action = routes.StockController.update(),Symbol("id") -> "stockUpdateForm"){
+
+@helper.inputText(stockForm("stockId"),Symbol("_label") -> "Stock Id",Symbol("readonly") -> "readonly",Symbol("class") -> "form-control")
+@helper.inputDate(stockForm("creationDate"),Symbol("_label") -> "Date",Symbol("class") -> "form-control")
+@helper.inputText(stockForm("itemId"),Symbol("_label") -> "Item Id",Symbol("readonly") -> "readonly",Symbol("class") -> "form-control")
+@helper.inputText(stockForm("quantity"),Symbol("_label") -> "Quantity",Symbol("class") -> "form-control",Symbol("type") -> "number")
+
+    }
+<button class="btn btn-success" onclick="sendPutRequest('stockUpdateForm','@routes.StockController.index()')">Edit Order</button>
+
+}
