@@ -1,4 +1,4 @@
-Play: v2.8.2
+Play: v2.8.2<br>
 Scala: v2.13.1
 Ebean: v6.0.0
 Bootstrap: v4.5.3
